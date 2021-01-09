@@ -38,4 +38,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://test:<password>@cluster0.fl84k.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 module.exports = app;
