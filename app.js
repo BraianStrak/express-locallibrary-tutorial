@@ -40,7 +40,7 @@ app.use(function(err, req, res, next) {
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://test:test@cluster0.fl84k.mongodb.net/local_library?retryWrites=true&w=majority';
+var mongoDB = 'mongodb+srv://test:test@cluster0.fl84k.mongodb.net/local-library?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
