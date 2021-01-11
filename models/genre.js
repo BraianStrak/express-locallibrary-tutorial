@@ -13,4 +13,4 @@ GenreSchema
 .virtual('url')
 .get(function () {
   return '/catalog/genre/' + this._id;
-});
+}); 
