@@ -38,30 +38,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://test:<password>@cluster0.fl84k.mongodb.net/<dbname>?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-
-//Import the mongoose module
+//Set up mongoose connection
 var mongoose = require('mongoose');
-
-//Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/my_database';
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
-
-//Get the default connection
+var mongoDB = 'mongodb+srv://test:test@cluster0.fl84k.mongodb.net/local_library?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-
-
-
 
 module.exports = app;
