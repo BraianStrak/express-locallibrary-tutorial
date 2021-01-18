@@ -1,4 +1,9 @@
+var async = require('async');
+
 var Book = require('../models/book');
+var BookInstance = require('../models/bookinstance');
+var Author = require('../models/author');
+var Genre = require('../models/genre');
 
 exports.index = function(req, res) {
     async.parallel({
